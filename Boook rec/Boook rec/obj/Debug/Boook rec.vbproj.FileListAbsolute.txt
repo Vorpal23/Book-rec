@@ -1,0 +1,12 @@
+C:\Users\rose.jordan\Desktop\Vbnet\Boook rec\Boook rec\bin\Debug\Boook rec.exe.config
+C:\Users\rose.jordan\Desktop\Vbnet\Boook rec\Boook rec\bin\Debug\Boook rec.exe
+C:\Users\rose.jordan\Desktop\Vbnet\Boook rec\Boook rec\bin\Debug\Boook rec.pdb
+C:\Users\rose.jordan\Desktop\Vbnet\Boook rec\Boook rec\bin\Debug\Boook rec.xml
+C:\Users\rose.jordan\Desktop\Vbnet\Boook rec\Boook rec\obj\Debug\Boook rec.vbprojAssemblyReference.cache
+C:\Users\rose.jordan\Desktop\Vbnet\Boook rec\Boook rec\obj\Debug\Boook_rec.Form1.resources
+C:\Users\rose.jordan\Desktop\Vbnet\Boook rec\Boook rec\obj\Debug\Boook_rec.Resources.resources
+C:\Users\rose.jordan\Desktop\Vbnet\Boook rec\Boook rec\obj\Debug\Boook rec.vbproj.GenerateResource.cache
+C:\Users\rose.jordan\Desktop\Vbnet\Boook rec\Boook rec\obj\Debug\Boook rec.vbproj.CoreCompileInputs.cache
+C:\Users\rose.jordan\Desktop\Vbnet\Boook rec\Boook rec\obj\Debug\Boook rec.exe
+C:\Users\rose.jordan\Desktop\Vbnet\Boook rec\Boook rec\obj\Debug\Boook rec.xml
+C:\Users\rose.jordan\Desktop\Vbnet\Boook rec\Boook rec\obj\Debug\Boook rec.pdb
