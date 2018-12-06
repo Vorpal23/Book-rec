@@ -1,62 +1,111 @@
 ﻿Imports System.IO
 
 Public Class Read
-    Structure Human
-        Dim ratings() As Double
-        Dim name As String
+    Public Sub New()
 
-    End Structure
-    Dim rdr As Human
-    Public Property data As Human
+    End Sub
 
+    Property Name As String
+    Property Scores As Single()
 
 
 
-    Sub Import(path As String, readln As Integer, person As Integer)
+
+
+
+
+
+
+
+
+
+    Function Compare(p As Read) As Integer
+        Dim Likeness As Integer
+        Dim i As Integer
+        Dim x As Read
+
+        x = New Read
+
         Try
-            FileOpen(1, path, OpenMode.Input, OpenAccess.Read)
-            GoTo goodOpen
-        Catch ex As Exception
-            Try
-                FileClose(1)
-                FileOpen(1, path, OpenMode.Input, OpenAccess.Read)
-                GoTo goodOpen
-            Catch ex2 As Exception
-                MsgBox(ex2)
-            End Try
+            If p.Scores IsNot Nothing Then
 
+                For i = 1 To 55
+                    If p.Scores(i) = Nothing Then p.Scores(i) = 0
+                    If Me.Scores(i) = Nothing Then Me.Scores(i) = 0
+                    Likeness += p.Scores(i) * Me.Scores(i)
+                Next
+
+
+                Return Likeness
+
+            End If
+        Catch ex As Exception
+            MsgBox(ex.ToString)
+            End
         End Try
+
+
+
+    End Function
+
+
+
+
+    Sub Import(Sl1 As String)
+        Dim tmp(82) As Single
+
 
 
 goodOpen:
-        Dim Strlines(readln) As String
-
-
-        Try
 
 
 
 
-            For i As Integer = 1 To (person * 2) - 1
-                Strlines(1) = LineInput(1)
-                Strlines(2) = LineInput(2)
-
-            Next
-            rdr.name = Strlines(1)
-            ReDim rdr.ratings(UBound(Strlines(2).Split(" ")))
-            For i As Integer = 1 To UBound((Strlines(2).Split(" ")))
-                rdr.ratings(i) = Val(Strlines(2).Split(" ")(i))
-            Next
-            data = rdr
 
 
 
-        Catch ex As Exception
-            MsgBox("Out Of Range")
 
-        End Try
+
+
+
+
+        ReDim Scores((UBound(Sl1.Split(" "))))
+        ReDim tmp(UBound(Sl1.Split(" ")))
+        For i As Integer = 1 To UBound((Sl1.Split(" ")))
+            tmp(i) = Val(Sl1.Split(" ")(i))
+        Next
+        Me.Scores = tmp
+
+
+
+
+
+        'MsgBox(ex.ToString)
+
+
 
     End Sub
+
+
+
+
+
+
+    Function Assoc(Pos, path) As String
+        Dim Books(10000)
+        Dim co As Integer = 1
+        Try
+            FileOpen(2, path, OpenMode.Input, OpenAccess.Read)
+            Do While Not EOF(2)
+                Books(co) = LineInput(2)
+                co += 1
+
+            Loop
+
+        Catch ex As Exception
+            MsgBox("Could not find Books")
+        End Try
+    End Function
 
     Public Overrides Function ToString() As String
         Return MyBase.ToString()
