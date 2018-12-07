@@ -1,5 +1,7 @@
 ﻿Public Class Form1
     Public Reader(86) As Read
+    Dim books(55) As String
+
     Function Compare(a As Read, b As Read) As Integer
         Dim Likeness As Integer
         Dim i As Integer
@@ -31,7 +33,23 @@
         Dim cus As New Read
         Dim i As Integer
 
+        Dim x As Integer = 1
+        FileOpen(3, "Z:\BookRecomendationProject\books.txt", OpenMode.Input, OpenAccess.Read)
+        Do While Not EOF(3)
+            Books(x) = LineInput(3)
+            x += 1
 
+        Loop
+
+        FileClose(3)
+        x = 1
+        FileOpen(3, "Z:\BookRecomendationProject\books.txt", OpenMode.Input, OpenAccess.Read)
+        Do While Not EOF(3)
+            books(x) = LineInput(3)
+            x += 1
+
+        Loop
+        FileClose(3)
         FileOpen(1, "Z:\BookRecomendationProject\readerratings.txt", OpenMode.Input, OpenAccess.Read)
 
         For i = 1 To 86
@@ -61,20 +79,24 @@
         Dim l As Integer = 0
         Dim index As Integer
         Dim i As Integer
-        MsgBox(Reader(1).GetType.ToString)
+        ' MsgBox(Reader(1).GetType.ToString)
         Dim com As New Read
 
         For i = 1 To 86
             com = Reader(i)
 
 
-            If Compare(p1, com) > l And Not p1.Name = com.Name Then
-                l = p1.Compare(Reader(i))
+            If p1.Compare(com) > l And Not p1.Name = com.Name Then
+                l = p1.Compare(com)
                 index = i
 
             End If
 
         Next
+        Debug.Flush()
+        Debug.Print(p1.Compare(Reader(index)))
+        Debug.Print(p1.rec(Reader(index)))
+        MsgBox(books(p1.rec(Reader(index))))
         MsgBox(Reader(index).Name)
     End Sub
 

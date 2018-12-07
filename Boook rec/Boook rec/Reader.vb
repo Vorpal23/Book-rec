@@ -1,7 +1,10 @@
 ﻿Imports System.IO
 
 Public Class Read
+
+
     Public Sub New()
+
 
     End Sub
 
@@ -10,7 +13,19 @@ Public Class Read
 
 
 
+    Function rec(p As Read) As Integer
+        Dim most As Integer = 0
+        Dim bok As Integer
+        For i As Integer = 1 To UBound(Me.Scores)
+            If p.Scores(i) > most And Me.Scores(i) = 0 Then
+                most = p.Scores(i)
+                bok = i
 
+            End If
+
+        Next
+        Return bok
+    End Function
 
 
 
@@ -30,8 +45,7 @@ Public Class Read
             If p.Scores IsNot Nothing Then
 
                 For i = 1 To 55
-                    If p.Scores(i) = Nothing Then p.Scores(i) = 0
-                    If Me.Scores(i) = Nothing Then Me.Scores(i) = 0
+
                     Likeness += p.Scores(i) * Me.Scores(i)
                 Next
 
@@ -91,16 +105,11 @@ goodOpen:
 
 
 
-    Function Assoc(Pos, path) As String
+    Function Assoc(Pos) As String
         Dim Books(10000)
         Dim co As Integer = 1
         Try
-            FileOpen(2, path, OpenMode.Input, OpenAccess.Read)
-            Do While Not EOF(2)
-                Books(co) = LineInput(2)
-                co += 1
-
-            Loop
+            Return Books(Pos)
 
         Catch ex As Exception
             MsgBox("Could not find Books")
