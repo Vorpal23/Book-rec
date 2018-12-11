@@ -10,14 +10,14 @@
         'Try
 
 
-        For i = 1 To 55
+        For i = 1 To 56
 
 
-                    Likeness += a.Scores(i) * b.Scores(i)
-                Next
+            Likeness += a.Scores(i) * b.Scores(i)
+        Next
 
 
-                Return Likeness
+        Return Likeness
 
 
         ' Catch ex As Exception
@@ -77,27 +77,25 @@
     Private Sub ListBox1_SelectedIndexChanged_1(sender As Object, e As EventArgs) Handles ListBox1.SelectedIndexChanged
         Dim p1 As Read = Reader(ListBox1.SelectedIndex + 1)
         Dim l As Integer = 0
-        Dim index As Integer
+        Dim ind As Integer
         Dim i As Integer
+        Dim j As Integer
         ' MsgBox(Reader(1).GetType.ToString)
         Dim com As New Read
-
+        Dim frd As New Read
         For i = 1 To 86
             com = Reader(i)
 
+            j = p1.Compare(com)
+            If j > l And Not p1.Name = com.Name Then
 
-            If p1.Compare(com) > l And Not p1.Name = com.Name Then
-                l = p1.Compare(com)
-                index = i
-
+                frd = com
             End If
 
         Next
-        Debug.Flush()
-        Debug.Print(p1.Compare(Reader(index)))
-        Debug.Print(p1.rec(Reader(index)))
-        MsgBox(books(p1.rec(Reader(index))))
-        MsgBox(Reader(index).Name)
+
+        MsgBox(books(p1.rec(frd)))
+        MsgBox(frd.Name)
     End Sub
 
     Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click

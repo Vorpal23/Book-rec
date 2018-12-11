@@ -35,28 +35,27 @@ Public Class Read
 
 
     Function Compare(p As Read) As Integer
-        Dim Likeness As Integer
+        Dim Likeness As Integer = 0
         Dim i As Integer
         Dim x As Read
 
         x = New Read
 
-        Try
-            If p.Scores IsNot Nothing Then
 
-                For i = 1 To 55
+        If p.Scores IsNot Nothing Then
 
-                    Likeness += p.Scores(i) * Me.Scores(i)
-                Next
+            For i = 1 To 55
+
+                Likeness += p.Scores(i) * Me.Scores(i)
+            Next
+            Compare = Likeness
 
 
-                Return Likeness
+
 
             End If
-        Catch ex As Exception
-            MsgBox(ex.ToString)
-            End
-        End Try
+
+
 
 
 
